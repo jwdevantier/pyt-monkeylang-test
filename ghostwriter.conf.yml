@@ -1,0 +1,23 @@
+logging:
+  level: info
+  format: '%(asctime)s - %(message)s'
+  datefmt: '%Y-%m-%d %H:%M:%S'
+
+parser:
+  open: '<@@'
+  close: '@@>'
+  processes: 4
+  temp_file_suffix: '.tmp.pyt'
+  include_patterns:
+    - '.*\.go$'
+  ignore_patterns:
+    - '.*\.tpl\.go$'
+  ignore_dir_patterns:
+    - '.*/node_modules$'
+    - '.*/\.git$'
+    - '.*/venv$'
+    - '.*/[^/]+\.egg-info$'
+    - '.*/__pycache__$'
+  search_paths:
+    - ./cgen
+  post_process_fnx: post_process.post_process
